@@ -1,0 +1,75 @@
+#include <iostream>
+#define DIME 50
+using namespace std;
+
+struct Anag
+{
+    string ISBN;
+    string titolo;
+    string autore;
+    string editore;
+    string anno;
+    string prezzo;
+    string tag;
+};
+
+void Inserisci(Anag libro[], int nl)
+{
+
+    cout<<"Codice ISBN: ";
+    cin>>libro[nl].ISBN;
+    cout<<"Titolo: ";
+    cin>>libro[nl].titolo;
+    cout<<"Autore: ";
+    cin>>libro[nl].autore;
+    cout<<"Editore: ";
+    cin>>libro[nl].editore;
+    cout<<"Anno: ";
+    cin>>libro[nl].anno;
+    cout<<"Prezzo: ";
+    cin>>libro[nl].prezzo;
+    cout<<"Tag del genere: ";
+    cin>>libro[nl].tag;
+    nl++;
+}
+
+void visualizza(Anag libro[], int nl)
+{
+    for(int i=0; i<nl; i++)
+    {
+    cout<<"Codice ISBN: "<<libro[nl].ISBN<<endl;
+    cout<<"\n\nTitolo: "<<libro[nl].titolo<<endl;
+    cout<<"\n\nAutore: "<<libro[nl].autore<<endl;
+    cout<<"\n\nEditore: "<<libro[nl].editore<<endl;
+    cout<<"\n\nAnno: "<<libro[nl].anno<<endl;
+    cout<<"\n\nPrezzo: "<<libro[nl].prezzo<<endl;
+    cout<<"\n\nTag del genere: "<<libro[nl].tag<<endl;
+    }
+
+}
+
+void cancella()
+{
+
+}
+
+void ricerca()
+{
+
+}
+
+void modifica()
+{
+
+
+}
+
+int main()
+{
+    int nl=0;
+    Anag libro[DIME];
+
+     Inserisci(libro, nl);
+     visualizza( libro,  nl);
+    return 0;
+}
