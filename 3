@@ -1,0 +1,102 @@
+#include <iostream>
+#define DIME 50
+using namespace std;
+
+struct Anag
+{
+    string ISBN;
+    string titolo;
+    string autore;
+    string editore;
+    string anno;
+    string prezzo;
+    string tag;
+};
+int nl=0;
+void Inserisci(Anag libro[])
+{
+
+    cout<<"Codice ISBN: ";
+    cin>>libro[nl].ISBN;
+    cout<<"Titolo: ";
+    cin>>libro[nl].titolo;
+    cout<<"Autore: ";
+    cin>>libro[nl].autore;
+    cout<<"Editore: ";
+    cin>>libro[nl].editore;
+    cout<<"Anno: ";
+    cin>>libro[nl].anno;
+    cout<<"Prezzo: ";
+    cin>>libro[nl].prezzo;
+    cout<<"Tag del genere: ";
+    cin>>libro[nl].tag;
+    nl=nl+1;
+
+
+}
+
+void visualizza(Anag libro[])
+{
+
+    for(int i=0; i<nl; i++)
+    {
+    cout<<"\n\nCodice ISBN: "<<libro[i].ISBN<<endl;
+    cout<<"Titolo: "<<libro[i].titolo<<endl;
+    cout<<"Autore: "<<libro[i].autore<<endl;
+    cout<<"Editore: "<<libro[i].editore<<endl;
+    cout<<"Anno: "<<libro[i].anno<<endl;
+    cout<<"Prezzo: "<<libro[i].prezzo<<endl;
+    cout<<"Tag del genere: "<<libro[i].tag<<endl;
+    }
+
+}
+
+void cancella(Anag libro[])
+{
+    
+    
+}
+
+void ricerca(Anag libro[])
+{
+    string ric;
+    cout<<"Inserire il codice ISBN del libro da ricercare: ";
+    cin>>ric;
+    for(int i=0; i<nl; i++)
+    {
+        if(ric==libro[i].ISBN)
+        {
+            cout<<"Libro trovato>>>"<<endl;
+        cout<<"Codice ISBN: "<<libro[i].ISBN<<endl;
+        cout<<"Titolo: "<<libro[i].titolo<<endl;
+        cout<<"Autore: "<<libro[i].autore<<endl;
+        cout<<"Editore: "<<libro[i].editore<<endl;
+        cout<<"Anno: "<<libro[i].anno<<endl;
+        cout<<"Prezzo: "<<libro[i].prezzo<<endl;
+        cout<<"Tag del genere: "<<libro[i].tag<<endl;
+        }
+
+
+    }
+
+}
+
+void modifica()
+{
+
+
+}
+
+int main()
+{
+
+
+
+    Anag libro[DIME];
+
+     Inserisci(libro);
+     Inserisci(libro);
+     visualizza(libro);
+     ricerca( libro);
+    return 0;
+}
