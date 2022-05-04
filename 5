@@ -1,0 +1,186 @@
+#include <iostream>
+#define DIME 50
+using namespace std;
+
+struct Anag
+{
+    string ISBN;
+    string titolo;
+    string autore;
+    string editore;
+    string anno;
+    string prezzo;
+    string tag;
+};
+int nl=0;
+void Inserisci(Anag libro[])
+{
+    cout<<"Codice ISBN: ";
+        cin>>libro[nl].ISBN;
+    for(int i=0; i<nl; i++)
+    {
+
+        if(libro[nl].ISBN==libro[i].ISBN)
+        {
+            cout<<"Inserisci un libro non presente nella libreria"<<endl;
+            cout<<"Codice ISBN: ";
+        cin>>libro[nl].ISBN;
+        i=-1;
+        }
+
+
+    }
+    cout<<"Titolo: ";
+    cin>>libro[nl].titolo;
+    cout<<"Autore: ";
+    cin>>libro[nl].autore;
+    cout<<"Editore: ";
+    cin>>libro[nl].editore;
+    cout<<"Anno: ";
+    cin>>libro[nl].anno;
+    cout<<"Prezzo: ";
+    cin>>libro[nl].prezzo;
+    cout<<"Tag del genere: ";
+    cin>>libro[nl].tag;
+    cout<<endl;
+    nl=nl+1;
+}
+
+void visualizza(Anag libro[])
+{
+    for(int i=0; i<nl; i++)
+    {
+    cout<<"\n\nCodice ISBN: "<<libro[i].ISBN<<endl;
+    cout<<"Titolo: "<<libro[i].titolo<<endl;
+    cout<<"Autore: "<<libro[i].autore<<endl;
+    cout<<"Editore: "<<libro[i].editore<<endl;
+    cout<<"Anno: "<<libro[i].anno<<endl;
+    cout<<"Prezzo: "<<libro[i].prezzo<<endl;
+    cout<<"Tag del genere: "<<libro[i].tag<<endl;
+    }
+
+
+
+}
+
+void cancella(Anag libro[])
+{
+    string ric;
+    cout<<"Inserire il codice ISBN del libro da cancellare: ";
+    cin>>ric;
+    for(int i=0; i<nl; i++)
+    {
+        if(ric==libro[i].ISBN)
+        {
+        libro[i].ISBN="";
+       libro[i].titolo="";
+        libro[i].autore="";
+        libro[i].editore="";
+        libro[i].anno="";
+        libro[i].prezzo="";
+        libro[i].tag="";
+        cout<<"Libro cancellato"<<endl;
+        }
+    }
+}
+
+void ricerca(Anag libro[])
+{
+    string ric;
+    cout<<"Inserire il codice ISBN del libro da ricercare: ";
+    cin>>ric;
+    for(int i=0; i<nl; i++)
+    {
+        if(ric==libro[i].ISBN)
+        {
+            cout<<"Libro trovato>>>"<<endl;
+        cout<<"Codice ISBN: "<<libro[i].ISBN<<endl;
+        cout<<"Titolo: "<<libro[i].titolo<<endl;
+        cout<<"Autore: "<<libro[i].autore<<endl;
+        cout<<"Editore: "<<libro[i].editore<<endl;
+        cout<<"Anno: "<<libro[i].anno<<endl;
+        cout<<"Prezzo: "<<libro[i].prezzo<<endl;
+        cout<<"Tag del genere: "<<libro[i].tag<<endl;
+        }
+
+    }
+}
+
+void modifica(Anag libro[])
+{
+    string ric;
+    cout<<"Inserire il codice ISBN del libro da modificare: ";
+    cin>>ric;
+    for(int i=0; i<nl; i++)
+    {
+        if(ric==libro[i].ISBN)
+        {
+            cout<<"Codice ISBN: ";
+    cin>>libro[i].ISBN;
+    cout<<"Titolo: ";
+    cin>>libro[i].titolo;
+    cout<<"Autore: ";
+    cin>>libro[i].autore;
+    cout<<"Editore: ";
+    cin>>libro[i].editore;
+    cout<<"Anno: ";
+    cin>>libro[i].anno;
+    cout<<"Prezzo: ";
+    cin>>libro[i].prezzo;
+    cout<<"Tag del genere: ";
+    cin>>libro[i].tag;
+    cout<<endl;
+        }
+    }
+}
+
+int main()
+{
+    Anag libro[DIME];
+    int cond;
+    do
+    {
+        cout<<"\n1. Inserisci libro"<<endl;
+        cout<<"2. Visualizza libreria"<<endl;
+        cout<<"3. Cancella libro"<<endl;
+        cout<<"4. Ricerca libro"<<endl;
+        cout<<"5. Modifica libro"<<endl;
+        cout<<"\nInserisci il numero dell'operazione: ";
+        cin>>cond;
+        cout<<endl;
+
+        if(cond==1)
+        {
+            Inserisci(libro);
+        }
+        else
+        {
+            if(cond==2)
+            {
+                visualizza(libro);
+            }
+            else
+            {
+                if(cond==3)
+                {
+                    cancella( libro);
+                }
+                else
+                {
+                    if(cond==4)
+                    {
+                        ricerca( libro);
+                    }
+                    else
+                    {
+                        if(cond==5)
+                        modifica( libro);
+                    }
+                }
+            }
+        }
+    }
+    while(cond!=6);
+
+    return 0;
+}
